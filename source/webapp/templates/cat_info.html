@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="cat-info">
+                {% if cat.happiness > 50 %}
+                    <img src="{% static 'images/happy.jpg' %}" alt="cat">
+                {% elif cat.happiness < 50 and cat.happiness > 30 %}
+                    <img src="{% static 'images/cat1.jpg' %}" alt="cat">
+                {% else %}
+                    <img src="{% static 'images/sad_cat.jpg' %}" alt="cat">
+                {% endif %}
+                
+            <div class="cat-text">
+                <h3>Имя: {{ cat.name }}</h3>
+                <h3>Аге: {{ cat.age }} год</h3>
+
+                {% if cat.food > 100 %}
+                    <h3>Сытость: {{ 100 }}</h3>
+                {% elif cat.food < 0 %}
+                    <h3>Сытость: {{ 0 }}</h3>
+                {% else %}
+                    <h3>Сытость: {{ cat.food }}</h3>
+                {% endif %}
+
+                {% if cat.happiness > 100 %}
+                    <h3>Настроение: {{ 100 }}</h3>
+                {% elif cat.happiness < 0 %}
+                    <h3>Настроение: {{ 0 }}</h3>
+                {% else %}
+                    <h3>Настроение: {{ cat.happiness }}</h3>
+                {% endif %}
+                <h3>спит?: {{ cat.is_sleeping }}</h3>
+            </div>
+        </div>
+        <form action="/update/" method="post">
+            {% csrf_token %}
+            <select name="action">
+                <option value="играть">играть</option>
+                <option value="кормить">кормить</option>
+                <option value="спать">спать</option>
+            </select>
+            <input type="submit" value="Send" />
+        </form>
+    </div>
+</body>
+</html>

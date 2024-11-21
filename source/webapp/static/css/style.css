@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background: aliceblue;
+    color: black;
+    margin: 0;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.cat-info{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+img{
+    margin-right: 30px;
+    width: 25%;
+    max-height: 200px;
+}
+.cat-text{
+    text-align: left;
+    width: 50%;
+}
+
+form{
+    margin: 0;
+}

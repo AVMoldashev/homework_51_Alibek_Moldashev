@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h3>Введите имя кота</h3>
+        <form action="create/" method="post">
+            {% csrf_token %}
+            <label>Name:</label><br />
+            <input type="text" name="name" />
+            <br/>
+            <br />
+            <input type="submit" value="Send"/>
+        </form>
+    </div>
+</body>
+</html>
